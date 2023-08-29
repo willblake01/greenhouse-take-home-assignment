@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import GlobalStyle from './globalStyle';
+import { NavBar, Positions } from './components';
 
-function App() {
+const Wrapper = styled.div`
+  background-color: #C8EFE3;
+  height: 100vh;
+  width: 100vw;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Wrapper>
+        <NavBar />
+        <Routes>
+          <Route path='*' element={<Navigate to='/positions' />} />
+          <Route path="/positions" element={<Positions />} />
+        </Routes>
+      </Wrapper>
+    </BrowserRouter>
   );
 }
 
