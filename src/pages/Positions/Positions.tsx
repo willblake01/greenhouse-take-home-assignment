@@ -1,7 +1,8 @@
 import { Fragment, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
-import { Card } from '../../components';
-import { LoadingSpinner } from '../utils';
+import { LoadingSpinner } from '../../components/utils';
+import { PositionsCard } from '../../pages/Positions/components';
 
 const StyledPositions = styled.div`
   align-items: center;
@@ -40,6 +41,8 @@ const Positions = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate()
+
   const { jobs = [], meta = {} }: any = data;
 
   const fetchData = async () => {
@@ -61,7 +64,7 @@ useEffect(() => {
           <div className={'jobs-container'}>
             {jobs.map((job: Job) => {
             return (
-              <Card key={job.id} job={job} />
+              <PositionsCard key={job.id} job={job} onClick={() => navigate(`/positions/${job.id}`)} />
             )
           })}
           </div>

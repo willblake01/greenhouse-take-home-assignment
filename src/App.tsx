@@ -1,7 +1,8 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import GlobalStyle from './globalStyle';
-import { NavBar, Positions } from './components';
+import { Position, Positions } from './pages';
+import { NavBar } from './components';
 
 const Wrapper = styled.div`
   height: 100%;
@@ -17,6 +18,7 @@ const App = () => {
         <Routes>
           <Route path='*' element={<Navigate to='/positions' />} />
           <Route path="/positions" element={<Positions />} />
+          <Route path="/positions/:id" element={<Position />} />
         </Routes>
       </Wrapper>
     </BrowserRouter>
