@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Card } from '../utils';
+import { Card } from '../../components';
+import { LoadingSpinner } from '../utils';
 
 const StyledPositions = styled.div`
   align-items: center;
@@ -37,6 +38,8 @@ interface Job {
 
 const Positions = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const { jobs = [], meta = {} }: any = data;
 
   const fetchData = async () => {
@@ -46,22 +49,24 @@ const Positions = () => {
 }
 
 useEffect(() => {
-  Promise.resolve(fetchData()).then((data) => {
-    setData(data)
-  });
+  Promise.all([setIsLoading(true), fetchData()]).then((data: any) => setData(data[1])).then(() => setIsLoading(false));
   }, [])
 
   return (
     <StyledPositions>
       <h1>Overview</h1>
-      <h3 className='meta-data'>{meta.total} jobs at Unity</h3>
-      <div className={'jobs-container'}>
-        {jobs.map((job: Job) => {
-        return (
-          <Card key={job.id} job={job} />
-        )
-      })}
-      </div>
+      {isLoading ? <LoadingSpinner /> : (
+        <Fragment>
+          <h3 className='meta-data'>{meta.total} jobs at Unity</h3>
+          <div className={'jobs-container'}>
+            {jobs.map((job: Job) => {
+            return (
+              <Card key={job.id} job={job} />
+            )
+          })}
+          </div>
+        </Fragment>
+      )}
     </StyledPositions>
   )
 }
