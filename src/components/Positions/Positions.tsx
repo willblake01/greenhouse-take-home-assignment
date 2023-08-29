@@ -1,31 +1,14 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import classnames from 'classnames'
+import { Card } from '../utils';
 
 const StyledPositions = styled.div`
   align-items: center;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  .display-flex {
-    display: flex;  
-  }
-  .job-card {
-    align-items: start;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    color: #808080;
-    flex-direction: column;
-    height: 12rem;
-    justify-content: left;
-    margin: 1rem;
-    padding: 0.5rem;
-    width: 20rem;
-    span {
-      margin: 0.3rem;
-    }
-  }
   .jobs-container {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -72,14 +55,10 @@ useEffect(() => {
     <StyledPositions>
       <h1>Overview</h1>
       <h3 className='meta-data'>{meta.total} jobs at Unity</h3>
-      <div className={classnames(['display-flex', 'jobs-container'])}>
+      <div className={'jobs-container'}>
         {jobs.map((job: Job) => {
         return (
-          <div key={job.id} className={classnames(['display-flex', 'job-card'])}>
-            <span>{`${job.location.name}`}</span>
-            <span><small>{`Internal Job ID: ${job.internal_job_id}`}</small></span>
-            <span><strong>{`${job.title}`}</strong></span>
-          </div>
+          <Card key={job.id} job={job} />
         )
       })}
       </div>

@@ -1,1 +1,1 @@
-export { default as Overview } from './Positions'
+export { default as Positions } from './Positions'
