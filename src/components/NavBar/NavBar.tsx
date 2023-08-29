@@ -32,7 +32,7 @@ const StyledNavBar = styled.header`
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <header className="App-header">
+      <header className='App-header'>
         <div className='nav-content'>
           <a className='nav-logo' href='/positions' rel='home'>Greenhouse Home Link</a>
         </div>

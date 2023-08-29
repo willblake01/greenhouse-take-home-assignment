@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CardContent, Typography } from "@mui/material"
+import { CardContent, Typography } from '@mui/material'
 import { Card } from '../../../components';
 
 const StyledPositionsCard = styled.div`
@@ -14,7 +14,7 @@ const StyledPositionsCard = styled.div`
     justify-content: left;
     margin: 1rem;
     padding: 0.5rem;
-    width: 30rem;
+    width: 32rem;
     span {
       margin: 0.3rem;
     }
@@ -22,24 +22,27 @@ const StyledPositionsCard = styled.div`
 `;
 
 const PositionsCard = ({ job, onClick }: any) => {
-  const content = (
-  <CardContent>
-    <Typography>
-      <span>{`${job.location.name}`}</span>
-    </Typography>
-    <Typography>
-      <span><small>{`Internal Job ID: ${job.internal_job_id}`}</small></span>
-    </Typography>
-    <Typography>
-      <span><strong>{`${job.title}`}</strong></span>
-    </Typography>
-  </CardContent>
-)
+  const { location = {}, internal_job_id = '', title = '' } = job;
+  const { name = '' } = location;
+
+  const cardContent = (
+    <CardContent>
+      <Typography>
+        <span>{`${name}`}</span>
+      </Typography>
+      <Typography>
+        <span><small>{`Internal Job ID: ${internal_job_id}`}</small></span>
+      </Typography>
+      <Typography>
+        <span><strong>{`${title}`}</strong></span>
+      </Typography>
+    </CardContent>
+  )
 
   return (
-  <StyledPositionsCard>
-    <Card className='job-card' content={content} onClick={onClick} />
-  </StyledPositionsCard>
+    <StyledPositionsCard>
+      <Card className='job-card' content={cardContent} onClick={onClick} />
+    </StyledPositionsCard>
   )
 }
 

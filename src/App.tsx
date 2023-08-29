@@ -17,8 +17,8 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path='*' element={<Navigate to='/positions' />} />
-          <Route path="/positions" element={<Positions />} />
-          <Route path="/positions/:id" element={<Position />} />
+          <Route path='/positions' element={<Positions />} />
+          <Route path='/positions/:id' element={<Position />} />
         </Routes>
       </Wrapper>
     </BrowserRouter>

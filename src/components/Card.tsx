@@ -1,4 +1,4 @@
-import { Card as MUICard } from "@mui/material"
+import { Card as MUICard } from '@mui/material'
 
 const Card = ({ className, content, onClick }: any) => (
   <MUICard className={className} onClick={onClick}>

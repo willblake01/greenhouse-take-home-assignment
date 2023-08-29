@@ -9,6 +9,7 @@ const StyledPositions = styled.div`
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
+  padding: 4rem 0;
   .jobs-container {
     display: flex;
     flex-direction: row;
@@ -23,19 +24,19 @@ const StyledPositions = styled.div`
 `;
 
 interface Location {
-    name: string;
-  }
+  name: string;
+}
 
 interface Job {
-    absolute_url: string;
-    id: number;
-    internal_job_id: number;
-    location: {
-      [key: string]: Location
-    }
-    title: string;
-    updated_at: string;
+  absolute_url: string;
+  id: number;
+  internal_job_id: number;
+  location: {
+    [key: string]: Location
   }
+  title: string;
+  updated_at: string;
+}
 
 const Positions = () => {
   const [data, setData] = useState([]);
@@ -45,14 +46,14 @@ const Positions = () => {
 
   const { jobs = [], meta = {} }: any = data;
 
-  const fetchData = async () => {
-  const response = await fetch('https://boards-api.greenhouse.io/v1/boards/unity3d/jobs');
-  const data = await response.json();
-  return data;
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('https://boards-api.greenhouse.io/v1/boards/unity3d/jobs');
+      const data = await response.json();
+      return data;
+    }
 
-useEffect(() => {
-  Promise.all([setIsLoading(true), fetchData()]).then((data: any) => setData(data[1])).then(() => setIsLoading(false));
+    Promise.all([setIsLoading(true), fetchData()]).then((data: any) => setData(data[1])).then(() => setIsLoading(false));
   }, [])
 
   return (
