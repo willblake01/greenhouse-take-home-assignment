@@ -4,9 +4,8 @@ import GlobalStyle from './globalStyle';
 import { NavBar, Positions } from './components';
 
 const Wrapper = styled.div`
-  background-color: #C8EFE3;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 `;
 
 const App = () => {
