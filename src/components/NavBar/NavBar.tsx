@@ -4,9 +4,7 @@ const StyledNavBar = styled.header`
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
   justify-content: center;
-
   min-height: 100px;
   .nav-content {
     align-items: center;
@@ -17,7 +15,6 @@ const StyledNavBar = styled.header`
     padding: 2rem 4rem;
     position: static;
     z-index: 2;
-    text-indent: -9999px;
   }
   .nav-logo {
     background-image: url(https://www.greenhouse.com/assets/svg/logo.svg);
@@ -25,6 +22,7 @@ const StyledNavBar = styled.header`
     background-size: 100%;
     display: inline-block;
     height: 3rem;
+    text-indent: -9999px;
     width: 12.5rem;
   }
 `;
@@ -35,6 +33,7 @@ const NavBar = () => {
       <header className='App-header'>
         <div className='nav-content'>
           <a className='nav-logo' href='/positions' rel='home'>Greenhouse Home Link</a>
+          <a href='/positions' rel='home'>Careers</a>
         </div>
       </header>
     </StyledNavBar>
