@@ -7,6 +7,11 @@ import { NavBar } from './components';
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
+  background-image: url(
+      https://careers.unity.com/_next/image?url=%2Fhero%2Fhero.jpg&w=3840&q=75
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 const App = () => {

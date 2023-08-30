@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import classnames from 'classnames';
 import styled from 'styled-components';
 import { LoadingSpinner } from '../../components/utils';
-import { PositionsCard } from '../../pages/Positions/components';
+import { PositionsCard, Search } from '../../pages/Positions/components';
 
 const StyledPositions = styled.div`
   align-items: center;
@@ -10,16 +11,24 @@ const StyledPositions = styled.div`
   display: flex;
   flex-direction: column;
   padding: 4rem 0;
-  .jobs-container {
+  .align-left {
+    align-self: flex-start;
+    margin-left: 1rem;
+  }
+  .align-items-center {
+    align-items: center;
+  }
+  .flex-row {
     display: flex;
     flex-direction: row;
+  }
+  .jobs-container {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
   }
-  .meta-data {
-    align-self: flex-start;
-    margin-left: 1rem;
+  .margin-top {
+    margin-top: 0.5rem;
   }
 `;
 
@@ -61,8 +70,9 @@ const Positions = () => {
       <h1>Overview</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
-          <h3 className='meta-data'>{meta.total} positions</h3>
-          <div className={'jobs-container'}>
+          <Search className={classnames('align-items-center', 'align-left', 'flex-row')} />
+          <h3 className={classnames('align-left', 'margin-top')}>{meta.total} positions</h3>
+          <div className={classnames('flex-row', 'jobs-container')}>
             {jobs.map((job: Job) => {
             return (
               <PositionsCard key={job.id} job={job} onClick={() => navigate(`/position/${job.id}`)} />
