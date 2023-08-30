@@ -17,11 +17,12 @@ const StyledButton = styled.button`
 type ButtonProps = {
   className?: string
   onClick?: () => void
+  onSubmit?: () => void
   text: string
 }
 
-const Button = ({ className, onClick, text }: ButtonProps) => (
-  <StyledButton className={className} onClick={onClick}>{text}</StyledButton>
+const Button = ({ className, onClick, text, onSubmit }: ButtonProps) => (
+  <StyledButton className={className} onClick={onClick} onSubmit={onSubmit}>{text}</StyledButton>
 )
 
 export default Button

@@ -83,7 +83,7 @@ const Positions = () => {
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
           <Search className='margin-left' onChange={setSearchTerm} onClick={filterPositions} />
-          <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{meta.total} positions</h3>
+          <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
           <div className={classnames('flex-row', 'jobs-container')}>
             {positions.map((job: Job) => {
             return (

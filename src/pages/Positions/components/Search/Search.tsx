@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import { Button, Input } from '../../../../components'
-import { Dispatch } from 'react';
 
 const StyledSearch = styled.div`
   align-items: center;
@@ -11,15 +11,31 @@ const StyledSearch = styled.div`
 
 type SearchProps = {
   className?: string
+  inputValue?: string
   onChange?: (value: string) => void;
   onClick?: () => void
+  setInputValue?: (value: string) => void
 }
 
-const Search = ({ className, onChange, onClick }: SearchProps) => {  
+const Search = ({ className, onChange, onClick }: SearchProps) => {
+  const [inputValue, setInputValue] = useState(null)
+
+  const handleSubmit = () => {
+    console.log('Now!!!')
+    Promise.all([
+      setInputValue(inputValue),
+    ]).then(
+      () =>
+        ((document.getElementById(
+          'input-id'
+        ) as HTMLInputElement).value = null)
+    )
+  }
+
   return (
     <StyledSearch>
-      <Input className={className} placeholder='Search Job Titles' onChange={onChange} />
-      <Button onClick={onClick} text='Search' />
+      <Input className={className} inputValue={inputValue} onChange={onChange} placeholder='Search Job Titles' setInputValue={setInputValue} />
+      <Button onClick={onClick} onSubmit={handleSubmit} text='Search' />
     </StyledSearch>
   )
 }

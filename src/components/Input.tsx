@@ -13,24 +13,24 @@ const StyledInput = styled.input`
 
 type InputProps = {
   className?: string
-  placeholder: string
+  inputValue?: string
   onChange?: (value: string) => void 
+  placeholder: string
+  setInputValue?: (value: string) => void
 } 
 
-const Input = ({ className, placeholder, onChange }: InputProps) => {
-  const [inputValue, setInputValue] = useState(null)
-
+const Input = ({ className, inputValue, placeholder, onChange, setInputValue }: InputProps) => {
   const handleInput = (e) => {
     const { value } = e.target as HTMLInputElement
     setInputValue(value)
   }
 
   useEffect(() => {
-    if (inputValue) onChange(inputValue)
+    if (inputValue) setInputValue(null)
   })
 
   return (
-  <StyledInput className={className} onChange={handleInput} placeholder={placeholder} />
+  <StyledInput className={className} id="input-id" onChange={handleInput} placeholder={placeholder} />
 )
 }
 
