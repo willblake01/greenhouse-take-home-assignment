@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom';
 import { LoadingSpinner } from '../../components/utils';
+import { Button } from '../../components';
 import { PositionCard } from './components';
 
 const StyledPosition = styled.div`
@@ -13,6 +14,9 @@ const StyledPosition = styled.div`
   .margin-top {
     margin-top: 2rem;
   }
+  .all-positions-button {
+    background-color: #2096F3;
+  }
 `;
 
 const Position = () => {
@@ -20,6 +24,8 @@ const Position = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [position, setPosition] = useState({});
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +40,12 @@ const Position = () => {
   return (
     <StyledPosition>
       <h1>Position</h1>
-        {isLoading ? <LoadingSpinner /> : <PositionCard className='margin-top' job={position} />}
+        {isLoading ? <LoadingSpinner /> : (
+          <Fragment>
+            <PositionCard className='margin-top' job={position} />
+            <Button className='all-positions-button' onClick={() => navigate('/positions')} text='See all positions' />
+          </Fragment>
+        )}
     </StyledPosition>
   )
 }

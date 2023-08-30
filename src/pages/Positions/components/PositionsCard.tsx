@@ -10,6 +10,7 @@ const StyledPositionsCard = styled.div`
     color: #808080;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     height: 12rem;
     justify-content: left;
     margin: 1rem;
