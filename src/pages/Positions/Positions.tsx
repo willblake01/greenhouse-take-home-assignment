@@ -65,7 +65,7 @@ const Positions = () => {
           <div className={'jobs-container'}>
             {jobs.map((job: Job) => {
             return (
-              <PositionsCard key={job.id} job={job} onClick={() => navigate(`/positions/${job.id}`)} />
+              <PositionsCard key={job.id} job={job} onClick={() => navigate(`/position/${job.id}`)} />
             )
           })}
           </div>
