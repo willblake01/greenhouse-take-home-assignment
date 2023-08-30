@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders the index page title', () => {
   render(<App />);
-  const title = screen.getByText(/Overview/i);
+  const title = screen.getByText(/All Positions/i);
   expect(title).toBeInTheDocument();
 });

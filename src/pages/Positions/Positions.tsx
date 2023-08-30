@@ -67,7 +67,7 @@ const Positions = () => {
 
   return (
     <StyledPositions>
-      <h1>Overview</h1>
+      <h1>All Positions</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
           <Search className={classnames('align-items-center', 'align-left', 'flex-row')} />
