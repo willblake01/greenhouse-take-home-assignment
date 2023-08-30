@@ -13,7 +13,6 @@ const StyledPositions = styled.div`
   padding: 4rem 0;
   .align-left {
     align-self: flex-start;
-    margin-left: 1rem;
   }
   .align-items-center {
     align-items: center;
@@ -26,6 +25,9 @@ const StyledPositions = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+  }
+  .margin-left {
+    margin-left: 4rem;
   }
   .margin-top {
     margin-top: 0.5rem;
@@ -49,11 +51,17 @@ interface Job {
 
 const Positions = () => {
   const [data, setData] = useState([]);
+  const { jobs = [], meta = {} }: any = data;
   const [isLoading, setIsLoading] = useState(false);
+  const [positions, setPositions] = useState([])
+  const [searchTerm, setSearchTerm] = useState(null)
 
   const navigate = useNavigate()
 
-  const { jobs = [], meta = {} }: any = data;
+  const filterPositions = () => {
+  const filteredPositions = jobs.filter(job => job.title.includes(searchTerm))
+    setPositions(filteredPositions)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,15 +73,19 @@ const Positions = () => {
     Promise.all([setIsLoading(true), fetchData()]).then((data: any) => setData(data[1])).then(() => setIsLoading(false));
   }, [])
 
+  useEffect(() => {
+    if (jobs.length > 0) setPositions(jobs)
+  }, [jobs])
+
   return (
     <StyledPositions>
       <h1>All Positions</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
-          <Search className={classnames('align-items-center', 'align-left', 'flex-row')} />
-          <h3 className={classnames('align-left', 'margin-top')}>{meta.total} positions</h3>
+          <Search className='margin-left' onChange={setSearchTerm} onClick={filterPositions} />
+          <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{meta.total} positions</h3>
           <div className={classnames('flex-row', 'jobs-container')}>
-            {jobs.map((job: Job) => {
+            {positions.map((job: Job) => {
             return (
               <PositionsCard key={job.id} job={job} onClick={() => navigate(`/position/${job.id}`)} />
             )

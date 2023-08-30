@@ -1,15 +1,26 @@
+import styled from 'styled-components'
 import { Button, Input } from '../../../../components'
+import { Dispatch } from 'react';
+
+const StyledSearch = styled.div`
+  align-items: center;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+`;
 
 type SearchProps = {
   className?: string
+  onChange?: (value: string) => void;
+  onClick?: () => void
 }
 
-const Search = ({ className }: SearchProps) => {
+const Search = ({ className, onChange, onClick }: SearchProps) => {  
   return (
-    <div className={className}>
-      <Input placeholder='Search Job Titles' />
-      <Button text='Search' />
-    </div>
+    <StyledSearch>
+      <Input className={className} placeholder='Search Job Titles' onChange={onChange} />
+      <Button onClick={onClick} text='Search' />
+    </StyledSearch>
   )
 }
 
