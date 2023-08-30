@@ -8,8 +8,8 @@ const LoadingSpinner = () => {
       ariaLabel='dna-loading'
       wrapperStyle={{ height: '620px' }}
       wrapperClass='dna-wrapper'
-      ballColors={['#FFFFFF', '#FFFFFF', '#FFFFFF']}
-      backgroundColor='#018561'
+      ballColors={['#000000', '#000000', '#000000']}
+      backgroundColor='#FFFFFF'
     />
   )
 }

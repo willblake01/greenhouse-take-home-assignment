@@ -61,7 +61,7 @@ const Positions = () => {
       <h1>Overview</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
-          <h3 className='meta-data'>{meta.total} jobs at Unity</h3>
+          <h3 className='meta-data'>{meta.total} positions</h3>
           <div className={'jobs-container'}>
             {jobs.map((job: Job) => {
             return (

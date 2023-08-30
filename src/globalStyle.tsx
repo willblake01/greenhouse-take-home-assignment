@@ -6,7 +6,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background-color: #C8EFE3;
+    background-image: url(
+      https://careers.unity.com/_next/image?url=%2Fhero%2Fhero.jpg&w=3840&q=75
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: Open-Sans, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
