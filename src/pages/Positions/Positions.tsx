@@ -51,7 +51,7 @@ interface Job {
 
 const Positions = () => {
   const [data, setData] = useState([]);
-  const { jobs = [], meta = {} }: any = data;
+  const { jobs = [] }: any = data;
   const [isLoading, setIsLoading] = useState(false);
   const [positions, setPositions] = useState([])
   const [searchTerm, setSearchTerm] = useState(null)
