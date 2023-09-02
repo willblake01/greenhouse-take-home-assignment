@@ -27,11 +27,17 @@ const GlobalStyle = createGlobalStyle`
   .flex-wrap-wrap {
     flex-wrap: wrap;
   }
+  .heigt-100 {
+    height: 100%;
+  }
   .justify-content-center {
     justify-content: center;
   }
   .justify-content-left {
     justify-content: left;
+  }
+  .width-100 {
+    width: 100%;
   }
 `;
 

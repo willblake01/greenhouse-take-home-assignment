@@ -11,9 +11,6 @@ const StyledPositions = styled.div`
   .align-left {
     align-self: flex-start;
   }
-  .jobs-container {
-    width: 100%;
-  }
   .margin-left {
     margin-left: 4rem;
   }
@@ -72,7 +69,7 @@ const Positions = () => {
         <Fragment>
           <Search className='margin-left' onChange={setSearchTerm} onClick={filterPositions} />
           <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
-          <div className={classnames('flex-row', 'flex-wrap-wrap', 'jobs-container', 'justify-content-center')}>
+          <div className={classnames('flex-row', 'flex-wrap-wrap', 'justify-content-center', 'width-100')}>
             {positions.map((job: Job) => {
             return (
               <PositionsCard key={job.id} job={job} onClick={() => navigate(`/position/${job.id}`)} />

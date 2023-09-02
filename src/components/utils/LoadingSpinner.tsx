@@ -5,9 +5,9 @@ const LoadingSpinner = () => {
     <FidgetSpinner
       height='80'
       width='80'
-      ariaLabel='dna-loading'
+      ariaLabel='fidget-spinner-loading'
       wrapperStyle={{ height: '620px' }}
-      wrapperClass='dna-wrapper'
+      wrapperClass='fidget-spinner-wrapper'
       ballColors={['#000000', '#000000', '#000000']}
       backgroundColor='#FFFFFF'
     />
