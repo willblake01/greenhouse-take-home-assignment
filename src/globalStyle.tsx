@@ -13,6 +13,26 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
+  .align-items-center {
+    align-items: center;
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .flex-wrap-wrap {
+    flex-wrap: wrap;
+  }
+  .justify-content-center {
+    justify-content: center;
+  }
+  .justify-content-left {
+    justify-content: left;
+  }
 `;
 
 export default GlobalStyle;

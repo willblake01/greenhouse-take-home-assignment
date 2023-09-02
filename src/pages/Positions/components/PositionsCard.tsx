@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import classnames from 'classnames';
 import { CardContent, Typography } from '@mui/material'
 import { Card } from '../../../components';
 
@@ -8,11 +9,7 @@ const StyledPositionsCard = styled.div`
     background-color: #FFFFFF;
     border-radius: 8px;
     color: #808080;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     height: 12rem;
-    justify-content: left;
     margin: 1rem;
     padding: 0.5rem;
     width: 32rem;
@@ -41,8 +38,8 @@ const PositionsCard = ({ job, onClick }: any) => {
   )
 
   return (
-    <StyledPositionsCard>
-      <Card className='job-card' content={cardContent} onClick={onClick} />
+    <StyledPositionsCard className={classnames('flex-column', 'flex-wrap-wrap')}>
+      <Card className={classnames('justify-content-left', 'job-card')} content={cardContent} onClick={onClick} />
     </StyledPositionsCard>
   )
 }

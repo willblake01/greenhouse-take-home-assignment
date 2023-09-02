@@ -4,16 +4,9 @@ import classnames from 'classnames'
 const StyledNavBar = styled.header`
   background-color: #FFFFFF;
   color: #000000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   min-height: 100px;
   .nav-content {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
     height: 6rem;
-    justify-content: left;
     padding: 2rem 4rem;
     position: static;
     z-index: 2;
@@ -41,13 +34,13 @@ const StyledNavBar = styled.header`
 
 const NavBar = () => {
   return (
-    <StyledNavBar>
-      <header className='App-header'>
-        <div className='nav-content'>
-          <a className={classnames('nav-item', 'nav-logo')} href='/positions' rel='home'>Greenhouse Home Link</a>
+    <StyledNavBar className='justify-content-center'>
+      <div className='flex-column'>
+        <div className={classnames('align-items-center', 'flex-row', 'justify-content-left', 'nav-content')}>
+          <a className={classnames('nav-item', 'nav-logo')} href='/positions' rel='home'>Unity Home Link</a>
           <a className={classnames('nav-item', 'navbar-link')} href='/positions' rel='home'>Careers</a>
         </div>
-      </header>
+      </div>
     </StyledNavBar>
   );
 }

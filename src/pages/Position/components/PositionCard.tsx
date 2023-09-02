@@ -8,7 +8,6 @@ const StyledPositionCard = styled.div`
     background-color: #FFFFFF;
     border-radius: 8px;
     display: flex;
-    flex-direction: column;
     height: max-content;
     padding: 2rem;
     width: 100%;
@@ -51,7 +50,7 @@ const PositionCard = ({ className, job }: any) => {
   )
 
   return (
-    <StyledPositionCard>
+    <StyledPositionCard className='flex-column'>
       <Card className={classnames(className, 'single-job-card')} content={cardContent} />
     </StyledPositionCard>
   )

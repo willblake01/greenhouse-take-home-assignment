@@ -1,12 +1,9 @@
-import { useState } from 'react'
+import classnames from 'classnames'
 import styled from 'styled-components'
 import { Button, Input } from '../../../../components'
 
 const StyledSearch = styled.div`
-  align-items: center;
   align-self: flex-start;
-  display: flex;
-  flex-direction: row;
 `;
 
 type SearchProps = {
@@ -23,7 +20,7 @@ const Search = ({ className, onChange, onClick }: SearchProps) => {
   }
 
   return (
-    <StyledSearch>
+    <StyledSearch className={classnames('align-items-center', 'flex-row')}>
       <Input className={className} onChange={onChange} placeholder='Search Job Titles' />
       <Button onClick={onClick} onSubmit={handleSubmit} text='Search' />
     </StyledSearch>

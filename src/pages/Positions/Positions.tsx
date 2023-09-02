@@ -6,24 +6,12 @@ import { LoadingSpinner } from '../../components/utils';
 import { PositionsCard, Search } from '../../pages/Positions/components';
 
 const StyledPositions = styled.div`
-  align-items: center;
   color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
   padding: 4rem 0;
   .align-left {
     align-self: flex-start;
   }
-  .align-items-center {
-    align-items: center;
-  }
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-  }
   .jobs-container {
-    flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
   }
   .margin-left {
@@ -78,13 +66,13 @@ const Positions = () => {
   }, [jobs])
 
   return (
-    <StyledPositions>
+    <StyledPositions className={classnames('align-items-center', 'flex-column')}>
       <h1>All Positions</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
           <Search className='margin-left' onChange={setSearchTerm} onClick={filterPositions} />
           <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
-          <div className={classnames('flex-row', 'jobs-container')}>
+          <div className={classnames('flex-row', 'flex-wrap-wrap', 'jobs-container', 'justify-content-center')}>
             {positions.map((job: Job) => {
             return (
               <PositionsCard key={job.id} job={job} onClick={() => navigate(`/position/${job.id}`)} />

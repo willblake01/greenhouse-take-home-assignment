@@ -1,15 +1,13 @@
 import { Fragment, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import classnames from 'classnames';
 import styled from 'styled-components'
 import { LoadingSpinner } from '../../components/utils';
 import { Button } from '../../components';
 import { PositionCard } from './components';
 
 const StyledPosition = styled.div`
-  align-items: center;
   color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
   padding: 4rem 6rem;
   .margin-top {
     margin-top: 2rem;
@@ -38,7 +36,7 @@ const Position = () => {
   }, [id])
 
   return (
-    <StyledPosition>
+    <StyledPosition className={classnames('align-items-center', 'flex-column')}>
       <h1>Position</h1>
         {isLoading ? <LoadingSpinner /> : (
           <Fragment>

@@ -1,11 +1,8 @@
-import { useEffect } from "react"
+import classnames from "classnames"
 import styled from "styled-components"
 
 const StyledInput = styled.input`
-  align-items: center;
   border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
   margin-right: 0.75rem;
   padding: 1.25rem;
   width: 16rem;
@@ -24,7 +21,7 @@ const Input = ({ className, placeholder, onChange }: InputProps) => {
   }
 
   return (
-  <StyledInput className={className} id="input-id" onChange={handleInput} placeholder={placeholder} />
+  <StyledInput className={classnames('align-items-center', className)} id="input-id" onChange={handleInput} placeholder={placeholder} />
 )
 }
 
