@@ -9,11 +9,10 @@ import { PositionCard } from './components';
 const StyledPosition = styled.div`
   color: #FFFFFF;
   padding: 4rem 6rem;
-  .margin-top {
-    margin-top: 2rem;
-  }
   .all-positions-button {
     background-color: #2096F3;
+    color: #FFFFFF;
+    margin-top: 2rem;
   }
 `;
 

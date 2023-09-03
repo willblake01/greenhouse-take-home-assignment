@@ -39,6 +39,9 @@ const GlobalStyle = createGlobalStyle`
   .justify-content-left {
     justify-content: left;
   }
+  .margin-top {
+    margin-top: 2rem;
+  }
   .width-100 {
     width: 100%;
   }
