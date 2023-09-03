@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const App = () => {
