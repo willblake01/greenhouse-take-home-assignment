@@ -39,12 +39,12 @@ const Positions = () => {
   const { jobs = [] }: any = data;
   const [isLoading, setIsLoading] = useState(false);
   const [positions, setPositions] = useState([])
-  const [searchTerm, setSearchTerm] = useState(null)
+  const [searchTitle, setSearchTitle] = useState(null)
 
   const navigate = useNavigate()
 
   const filterPositions = () => {
-  const filteredPositions = jobs.filter(job => job.title.includes(searchTerm))
+  const filteredPositions = jobs.filter(job => job.title.includes(searchTitle))
     setPositions(filteredPositions)
   }
 
@@ -62,12 +62,16 @@ const Positions = () => {
     if (jobs.length > 0) setPositions(jobs)
   }, [jobs])
 
+  useEffect(() => {
+    if (searchTitle) filterPositions()
+  }, [searchTitle])
+
   return (
     <StyledPositions className={classnames('align-items-center', 'flex-column')}>
       <h1>All Positions</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
-          <Search className='margin-left' onChange={setSearchTerm} onClick={filterPositions} />
+          <Search className='margin-left' onClick={filterPositions} setSearchTitle={setSearchTitle} />
           <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
           <div className={classnames('flex-row', 'flex-wrap-wrap', 'justify-content-center', 'width-100')}>
             {positions.map((job: Job) => {

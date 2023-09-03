@@ -21,7 +21,7 @@ const Input = ({ className, placeholder, onChange }: InputProps) => {
   }
 
   return (
-  <StyledInput className={classnames('align-items-center', className)} id="input-id" onChange={handleInput} placeholder={placeholder} />
+  <StyledInput className={classnames('align-items-center', className)} id="input-id" onChange={handleInput} placeholder={placeholder} type='text' />
 )
 }
 

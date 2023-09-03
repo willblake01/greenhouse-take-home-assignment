@@ -5,13 +5,13 @@ import { Position, Positions } from './pages';
 import { NavBar } from './components';
 
 const Wrapper = styled.div`
+  background-attachment: fixed;
   background-image: url(
     https://careers.unity.com/_next/image?url=%2Fhero%2Fhero.jpg&w=3840&q=75
   );
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   min-height: 100vh;
 `;
 

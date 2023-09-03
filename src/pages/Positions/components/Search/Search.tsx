@@ -1,28 +1,30 @@
+import { useState } from 'react';
 import classnames from 'classnames'
 import styled from 'styled-components'
 import { Button, Input } from '../../../../components'
 
-const StyledSearch = styled.div`
+const StyledSearch = styled.form`
   align-self: flex-start;
 `;
 
 type SearchProps = {
   className?: string
-  onChange?: (value: string) => void;
   onClick?: () => void;
+  setSearchTitle?: (value: string) => void;
 }
 
-const Search = ({ className, onChange, onClick }: SearchProps) => {
-  const handleSubmit = () => {
-    ((document.getElementById(
-      'input-id'
-    ) as HTMLInputElement).value = null)
+const Search = ({ className, onClick, setSearchTitle }: SearchProps) => {
+  const [searchTerm, setSearch] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSearchTitle(searchTerm)
   }
 
   return (
-    <StyledSearch className={classnames('align-items-center', 'flex-row')}>
-      <Input className={className} onChange={onChange} placeholder='Search Job Titles' />
-      <Button onClick={onClick} onSubmit={handleSubmit} text='Search' />
+    <StyledSearch className={classnames('align-items-center', 'flex-row')} onSubmit={(e) => handleSubmit(e)}>
+      <Input className={className} onChange={setSearch} placeholder='Search Job Titles' />
+      <Button onClick={onClick} text='Search' type='submit' />
     </StyledSearch>
   )
 }

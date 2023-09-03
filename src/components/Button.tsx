@@ -1,3 +1,4 @@
+import { type } from 'os';
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
@@ -17,12 +18,12 @@ const StyledButton = styled.button`
 type ButtonProps = {
   className?: string
   onClick?: () => void
-  onSubmit?: () => void
   text: string
+  type?: 'button' | 'submit' | 'reset'
 }
 
-const Button = ({ className, onClick, text, onSubmit }: ButtonProps) => (
-  <StyledButton className={className} onClick={onClick} onSubmit={onSubmit}>{text}</StyledButton>
+const Button = ({ className, onClick, text, type }: ButtonProps) => (
+  <StyledButton className={className} onClick={onClick} type={type}>{text}</StyledButton>
 )
 
 export default Button
