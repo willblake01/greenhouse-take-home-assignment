@@ -16,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
   .align-items-center {
     align-items: center;
   }
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
   .flex-column {
     display: flex;
     flex-direction: column;

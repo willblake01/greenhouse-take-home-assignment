@@ -2,15 +2,12 @@ import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import classnames from 'classnames';
 import styled from 'styled-components';
-import { LoadingSpinner } from '../../components/utils';
-import { PositionsCard, Search } from '../../pages/Positions/components';
+import { LoadingSpinner, Search } from '../../components/utils';
+import { PositionsCard } from '../../pages/Positions/components';
 
 const StyledPositions = styled.div`
   color: #FFFFFF;
   padding: 4rem 0;
-  .align-left {
-    align-self: flex-start;
-  }
   .margin-left {
     margin-left: 4rem;
   }
@@ -67,12 +64,12 @@ const Positions = () => {
   }, [searchTitle])
 
   return (
-    <StyledPositions className={classnames('align-items-center', 'flex-column')}>
+    <StyledPositions className={classnames('align-items-center', 'align-self-flex-start', 'flex-column')}>
       <h1>All Positions</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
           <Search className='margin-left' onClick={filterPositions} setSearchTitle={setSearchTitle} />
-          <h3 className={classnames('align-left', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
+          <h3 className={classnames('align-self-flex-start', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
           <div className={classnames('flex-row', 'flex-wrap-wrap', 'justify-content-center', 'width-100')}>
             {positions.map((job: Job) => {
             return (
