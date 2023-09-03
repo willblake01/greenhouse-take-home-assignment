@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import classnames from 'classnames'
-import styled from 'styled-components'
-import { Button, Input } from '../..'
+import { SearchButton, SearchInput } from './components';
 
 type SearchProps = {
   className?: string
@@ -18,9 +17,9 @@ const Search = ({ className, onClick, setSearchTitle }: SearchProps) => {
   }
 
   return (
-    <form className={classnames('align-items-center', 'align-self-flex-start', 'flex-row')} onSubmit={(e) => handleSubmit(e)}>
-      <Input className={className} onChange={setSearch} placeholder='Search Job Titles' />
-      <Button onClick={onClick} text='Search' type='submit' />
+    <form className={classnames('align-items-center', 'align-self-flex-start', className, 'flex-row')} onSubmit={(e) => handleSubmit(e)}>
+      <SearchInput onChange={setSearch} placeholder='Search Job Titles' />
+      <SearchButton onClick={onClick} text='Search' type='submit' />
     </form>
   )
 }

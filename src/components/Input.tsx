@@ -1,12 +1,5 @@
 import classnames from "classnames"
-import styled from "styled-components"
-
-const StyledInput = styled.input`
-  border-radius: 0.5rem;
-  margin-right: 0.75rem;
-  padding: 1.25rem;
-  width: 16rem;
-`;
+import { Input as MUIInput } from '@mui/material'
 
 type InputProps = {
   className?: string
@@ -21,7 +14,7 @@ const Input = ({ className, placeholder, onChange }: InputProps) => {
   }
 
   return (
-  <StyledInput className={classnames('align-items-center', className)} id="input-id" onChange={handleInput} placeholder={placeholder} type='text' />
+  <MUIInput className={classnames('align-items-center', className)} id="input-id" onChange={handleInput} placeholder={placeholder} type='text' />
 )
 }
 
