@@ -29,6 +29,18 @@ const StyledNavBar = styled.header`
       text-decoration: underline;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+
+    a {
+      font-size: 0.8rem;
+    }
+    .nav-logo {
+      height: 2rem;
+      width: 5rem;
+    }
+  }
 `;
 
 const NavBar = () => {

@@ -17,6 +17,10 @@ const StyledPositionsCard = styled.div`
       margin: 0.3rem;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    max-width: 6rem;
+  }
 `;
 
 const PositionsCard = ({ job, onClick }: any) => {

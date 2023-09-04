@@ -14,6 +14,12 @@ const StyledPositions = styled.div`
   .margin-top {
     margin-top: 0.5rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .cards-container {
+      flex-direction: column;
+    }
+  }
 `;
 
 interface Location {
@@ -64,13 +70,13 @@ const Positions = () => {
   }, [searchTitle])
 
   return (
-    <StyledPositions className={classnames('align-items-center', 'align-self-flex-start', 'flex-column')}>
+    <StyledPositions className={classnames('align-items-center', 'flex-column')}>
       <h1>All Positions</h1>
       {isLoading ? <LoadingSpinner /> : (
         <Fragment>
           <Search className='margin-left' onClick={filterPositions} setSearchTitle={setSearchTitle} />
           <h3 className={classnames('align-self-flex-start', 'margin-left', 'margin-top')}>{positions?.length} positions</h3>
-          <div className={classnames('flex-row', 'flex-wrap-wrap', 'justify-content-center', 'width-100')}>
+          <div className={classnames('cards-container', 'flex-row', 'flex-wrap-wrap', 'justify-content-center')}>
             {positions.map((job: Job) => {
             return (
               <PositionsCard key={job.id} job={job} onClick={() => navigate(`/position/${job.id}`)} />
