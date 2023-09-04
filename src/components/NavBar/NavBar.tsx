@@ -4,9 +4,8 @@ import classnames from 'classnames'
 const StyledNavBar = styled.header`
   background-color: #FFFFFF;
   color: #000000;
-  min-height: 100px;
   .nav-content {
-    height: 6rem;
+    height: 100%;
     padding: 2rem 4rem;
     position: static;
     z-index: 2;
@@ -34,12 +33,10 @@ const StyledNavBar = styled.header`
 
 const NavBar = () => {
   return (
-    <StyledNavBar className='justify-content-center'>
-      <div className='flex-column'>
-        <div className={classnames('align-items-center', 'flex-row', 'justify-content-left', 'nav-content')}>
-          <a className={classnames('nav-item', 'nav-logo')} href='/positions' rel='home'>Unity Home Link</a>
-          <a className={classnames('nav-item', 'navbar-link')} href='/positions' rel='home'>Careers</a>
-        </div>
+    <StyledNavBar>
+      <div className={classnames('align-items-center', 'flex-row', 'justify-content-left', 'nav-content')}>
+        <a className={classnames('nav-item', 'nav-logo')} href='/positions' rel='home'>Unity Home Link</a>
+        <a className={classnames('nav-item', 'navbar-link')} href='/positions' rel='home'>Careers</a>
       </div>
     </StyledNavBar>
   );
