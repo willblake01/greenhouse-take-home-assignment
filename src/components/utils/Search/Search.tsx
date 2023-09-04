@@ -18,8 +18,8 @@ const Search = ({ className, onClick, setSearchTitle }: SearchProps) => {
 
   return (
     <form className={classnames('align-items-center', 'align-self-flex-start', className, 'flex-row')} aria-label='search-form' onSubmit={(e) => handleSubmit(e)}>
-      <SearchInput aria-label='search-input' onChange={setSearch} placeholder='Search Job Titles' />
-      <SearchButton aria-label='search-button' onClick={onClick} text='Search' type='submit' />
+      <SearchInput onChange={setSearch} placeholder='Search Job Titles' />
+      <SearchButton onClick={onClick} text='Search' type='submit' />
     </form>
   )
 }

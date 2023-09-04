@@ -17,7 +17,12 @@ describe('<Position />', () => {
     )
 
     const heading = screen.getByRole('heading', { level: 1 })
+    const seeAllPositionsButton = screen.getByRole('button', { name: /See all positions/i })
+
     expect(heading).toBeInTheDocument();
+    expect(seeAllPositionsButton).toBeInTheDocument();
+
     expect(heading).toHaveTextContent('Position');
+    expect(seeAllPositionsButton).toHaveTextContent('See all positions');
   });
 })

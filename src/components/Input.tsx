@@ -16,7 +16,7 @@ const Input = ({ ariaLabel, className, name, placeholder, onChange }: InputProps
   }
 
   return (
-  <MUIInput className={classnames('align-items-center', className)} id="input-id" aria-label={ariaLabel} name={name} onChange={handleInput} placeholder={placeholder} type='text' />
+  <MUIInput aria-label={ariaLabel} className={classnames('align-items-center', className)} name={name} onChange={handleInput} placeholder={placeholder} type='text' />
 )
 }
 
