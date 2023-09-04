@@ -20,7 +20,7 @@ type SearchInputProps = {
 
 const SearchInput = ({ className, onChange, placeholder }: SearchInputProps) => (
   <StyledSearchInput>
-    <Input className={classnames(className, 'search-input')} onChange={onChange} placeholder={placeholder} />
+    <Input ariaLabel='search-input' className={classnames(className, 'search-input')} name='search-input' onChange={onChange} placeholder={placeholder} />
   </StyledSearchInput>
 )
 

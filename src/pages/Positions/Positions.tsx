@@ -12,7 +12,7 @@ const StyledPositions = styled.div`
     margin-left: 4rem;
   }
   .margin-top {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 
   @media screen and (max-width: 768px) {
@@ -38,8 +38,8 @@ interface Job {
 }
 
 const Positions = () => {
-  const [data, setData] = useState([]);
-  const { jobs = [] }: any = data;
+  const [data, setData] = useState(null);
+  const { jobs = [] }: any = data || {};
   const [isLoading, setIsLoading] = useState(false);
   const [positions, setPositions] = useState([])
   const [searchTitle, setSearchTitle] = useState(null)
@@ -47,7 +47,7 @@ const Positions = () => {
   const navigate = useNavigate()
 
   const filterPositions = () => {
-  const filteredPositions = jobs.filter(job => job.title.includes(searchTitle))
+  const filteredPositions = jobs.filter((job: Job) => job.title.includes(searchTitle))
     setPositions(filteredPositions)
   }
 
@@ -58,8 +58,8 @@ const Positions = () => {
       return data;
     }
 
-    Promise.all([setIsLoading(true), fetchData()]).then((data: any) => setData(data[1])).then(() => setIsLoading(false));
-  }, [])
+    if (!data) Promise.all([setIsLoading(true), fetchData()]).then((data: any) => setData(data[1])).then(() => setIsLoading(false));
+  }, [data])
 
   useEffect(() => {
     if (jobs.length > 0) setPositions(jobs)

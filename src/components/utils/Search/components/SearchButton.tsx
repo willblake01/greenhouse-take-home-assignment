@@ -32,7 +32,7 @@ type SearchButtonProps = {
 
 const SearchButton = ({ className, onClick, text, type }: SearchButtonProps) => (
   <StyledSearchButton>
-    <Button className={classnames(className, 'search-button')} onClick={onClick} text={text} type={type} />
+    <Button aria-label='search-button' className={classnames(className, 'search-button')} name='search-button' onClick={onClick} text={text} type={type} />
   </StyledSearchButton>
 )
 
