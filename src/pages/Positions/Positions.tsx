@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import classnames from 'classnames';
 import styled from 'styled-components';
@@ -46,10 +46,10 @@ const Positions = () => {
 
   const navigate = useNavigate()
 
-  const filterPositions = () => {
+  const filterPositions = useCallback(() => {
   const filteredPositions = jobs.filter((job: Job) => job.title.includes(searchTitle))
     setPositions(filteredPositions)
-  }
+  }, [jobs, searchTitle])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,7 +67,7 @@ const Positions = () => {
 
   useEffect(() => {
     if (searchTitle) filterPositions()
-  }, [searchTitle])
+  }, [filterPositions, searchTitle])
 
   return (
     <StyledPositions className={classnames('align-items-center', 'flex-column')}>

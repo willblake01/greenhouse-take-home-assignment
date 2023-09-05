@@ -16,7 +16,9 @@ describe('<Search />', () => {
       </BrowserRouter>
     )
 
-    const link = screen.getByRole('form', { name: 'search-form' })
-    expect(link).toHaveAttribute('aria-label', 'search-form')
+    const searchForm = screen.getByRole('form', { name: 'search-form' })
+
+    expect(searchForm).toBeInTheDocument();
+    expect(searchForm).toHaveAttribute('aria-label', 'search-form')
   });
 })
