@@ -20,7 +20,10 @@ const StyledSearchButton = styled.div`
     :hover {
       background-color: #FFFFFF;
     }
-  }
+
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
 `;
 
 type SearchButtonProps = {

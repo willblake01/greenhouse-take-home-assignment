@@ -31,10 +31,11 @@ const StyledNavBar = styled.header`
   }
 
   @media screen and (max-width: 768px) {
-    width: 100%;
-
     a {
       font-size: 0.8rem;
+    }
+    .nav-content {
+      padding: 1.5rem 3rem;
     }
     .nav-logo {
       height: 2rem;

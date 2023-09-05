@@ -45,6 +45,16 @@ const GlobalStyle = createGlobalStyle`
   .width-100 {
     width: 100%;
   }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .margin-left {
+      margin-left: 1rem;
+    }
+  }
 `;
 
 export default GlobalStyle;

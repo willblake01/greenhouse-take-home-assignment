@@ -19,7 +19,12 @@ const StyledPositionsCard = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    max-width: 6rem;
+    .job-card {
+      font-size: 0.5em;
+      max-height: 12rem;
+      max-width: 20rem;
+      overflow: hidden;
+    }
   }
 `;
 

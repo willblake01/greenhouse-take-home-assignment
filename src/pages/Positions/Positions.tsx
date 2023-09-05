@@ -19,6 +19,12 @@ const StyledPositions = styled.div`
     .cards-container {
       flex-direction: column;
     }
+    .margin-left {
+      margin-left: 0.5rem;
+    }
+    .margin-top {
+      margin-top: 0.5rem;
+    }
   }
 `;
 
